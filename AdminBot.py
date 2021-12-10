@@ -17,11 +17,9 @@ class AdminBot():
 
   def send_alert(self, detection, accuracy, img):
     self.bot.send_message(
-        self.admin_id, '----------------------------------------------------------------------------------------------------\n⚠️⚠️⚠️⚠️ ALERTA ⚠️⚠️⚠️⚠️\n\n' f'Detectado: {detection}\n'f'Acurácia: {accuracy}\n')
+        self.admin_id, '⚠️⚠️⚠️⚠️ ALERTA ⚠️⚠️⚠️⚠️\n\n' f'Detectado: {detection}\n'f'Acurácia: {accuracy}\n')
     self.bot.send_photo(self.admin_id,  'https://itdt-inference.s3.amazonaws.com/person_36.45-img64fa1f6e6c4540769d86e27f12d2a23b.png')
-    self.bot.send_message(
-        self.admin_id, '----------------------------------------------------------------------------------------------------')
-
+    
   def alive(self):
     self.bot.polling()
 
