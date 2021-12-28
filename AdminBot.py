@@ -1,7 +1,9 @@
-from index import *
+#from index import *
+from typing import List
+import telebot
 
 class AdminBot():
-  def __init__(self, token_admin, admin_id):
+  def __init__(self, token_admin: str, admin_id):
     self.token_admin = token_admin
     self.admin_id = admin_id
     self.bot = telebot.TeleBot(token_admin)  # creating a instance
@@ -17,9 +19,8 @@ class AdminBot():
 
   def send_alert(self, detection, accuracy, img):
     self.bot.send_message(
-        self.admin_id, '⚠️⚠️⚠️⚠️ ALERTA ⚠️⚠️⚠️⚠️\n\n' f'Detectado: {detection}\n'f'Acurácia: {accuracy}\n')
-    self.bot.send_photo(self.admin_id,  'https://itdt-inference.s3.amazonaws.com/person_36.45-img64fa1f6e6c4540769d86e27f12d2a23b.png')
+        self.admin_id, '⚠️⚠️⚠️⚠️ ALERTA ⚠️⚠️⚠️⚠️\n\n' f'Detectado: {detection}\n'f'Acurácia: {accuracy}%\n')
+    self.bot.send_photo(self.admin_id, img)
     
   def alive(self):
     self.bot.polling()
-
