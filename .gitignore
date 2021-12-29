@@ -1,6 +1,12 @@
 ### dotenv ###
 .env
 
+### TODO file ###
+TODO
+
+### relatorio file ###
+relatorio
+
 ### venv ###
 # Virtualenv
 # http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
