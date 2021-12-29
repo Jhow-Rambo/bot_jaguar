@@ -1,5 +1,8 @@
-from index import *
+import sys
+sys.path.append("..")
 
+from bot_jaguar.index import *
+#--------------------------------------------------------------------------------------------------#
 class UserBot():
   def __init__(self, user_token: str, user_id: str):
     """Class used to send receive comands, send alerts and log for

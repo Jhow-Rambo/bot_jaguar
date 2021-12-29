@@ -1,6 +1,9 @@
-from index import *
-from log.log import Log
+import sys
+sys.path.append("..")
 
+from bot_jaguar.index import *
+from bot_jaguar.log.log import Log
+#--------------------------------------------------------------------------------------------------#
 class AdminBot(Log):
   def __init__(self, token_admin: str, admin_id: str, log=False):
     """Class used to send receive comands, send alerts and log for
