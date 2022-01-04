@@ -57,9 +57,16 @@ class AdminBot(Log):
     self.bot.polling()
 
   def send_log(self):
+    """Funtion to send the log to the admin
+    """
     return super().send_log()
   
   def update_log_date(self):
     """Funtion to update the date in the log
     """
     return super().update_date()
+  
+  def send_isAlive(self):
+    """Funtion to test if the bot is alive
+    """
+    self.bot.send_message(self.admin_id, 'Estou vivo!')

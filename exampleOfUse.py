@@ -22,5 +22,6 @@ t1.start()
 #----------      Send Alert   ------------#
 # tb.send_alert(detection='pessoa', accuracy='67', img=None)
 
-
+#----------      Send Alive   ------------#
+# tb.send_isAlive()
 

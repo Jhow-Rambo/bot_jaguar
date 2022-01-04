@@ -32,4 +32,9 @@ class UserBot():
       self.bot.send_photo(self.user_id, img)
     except:
       pass
+  
+  def send_isAlive(self):
+    """Funtion to test if the bot is alive
+    """
+    self.bot.send_message(self.user_id, 'Serviço ativo')
 
