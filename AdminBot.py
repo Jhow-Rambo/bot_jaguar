@@ -1,8 +1,11 @@
-import sys
-sys.path.append("..")
+# import sys
+# sys.path.append("..")
 
-from bot_jaguar.index import *
-from bot_jaguar.log.log import Log
+# from bot_jaguar.index import *
+# from bot_jaguar.log.log import Log
+from index import *
+from log.log import Log
+
 #--------------------------------------------------------------------------------------------------#
 class AdminBot(Log):
   def __init__(self, token_admin: str, admin_id: str, log=False):
@@ -44,12 +47,18 @@ class AdminBot(Log):
         accuracy (int): Accuracy of the detection
         img (Any): Image with the detection
     """
+    sendDetection = ''
+
     try:
+      
+      for i in range(len(detection)):
+        sendDetection += '  + ' + detection[i] + ' - ' + str(accuracy[i]) + '%' + '\n '
+    
       if self.log:
         super().update_inference(detection, accuracy)
 
       self.bot.send_message(
-          self.admin_id, '⚠️⚠️⚠️⚠️ ALERTA ⚠️⚠️⚠️⚠️\n\n' f'Detectado: {detection}\n'f'Acurácia: {accuracy}%\n')
+          self.admin_id, '⚠️⚠️⚠️⚠️ ALERTA ⚠️⚠️⚠️⚠️\n\n' f'Detecções:\n\n {sendDetection}')
       self.bot.send_photo(self.admin_id, img)
     except:
       pass
