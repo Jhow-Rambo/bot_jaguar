@@ -1,7 +1,9 @@
-import sys
-sys.path.append("..")
+# import sys
+# sys.path.append("..")
 
-from bot_jaguar.index import *
+# from bot_jaguar.index import *
+from index import *
+
 #--------------------------------------------------------------------------------------------------#
 class UserBot():
   def __init__(self, user_token: str, user_id: str):
