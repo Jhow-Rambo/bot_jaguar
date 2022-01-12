@@ -20,7 +20,7 @@ tb = AdminBot(token_admin, admin_id, log=True)
 # tb.update_log_date()
 
 #----------      Send Alert   ------------#
-tb.send_alert(detection=['pessoa', 'pessoa', 'carro', 'casa'], accuracy=['23', '43', '31', '90'], img=None)
+tb.send_alert(detection=['pessoa', 'pessoa', 'carro', 'casa'], accuracy=['23', '43', '31', '90'], img=None, camera='camera1')
 
 #----------      Send Alive   ------------#
 # tb.send_isAlive()

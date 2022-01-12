@@ -39,13 +39,14 @@ class AdminBot(Log):
     def send_commands(message):
       bot.reply_to(message, "/log\n/help")
 
-  def send_alert(self, detection: str, accuracy: int, img: Any):
+  def send_alert(self, detection: str, accuracy: int, img: Any, camera: str):
     """Function to send alerts to the admin when the IA detects something
 
     Args:
         detection (str): String with the detection
         accuracy (int): Accuracy of the detection
         img (Any): Image with the detection
+        camera (str): Name of the camera
     """
     sendDetection = ''
 
@@ -55,10 +56,10 @@ class AdminBot(Log):
         sendDetection += '  + ' + detection[i] + ' - ' + str(accuracy[i]) + '%' + '\n '
     
       if self.log:
-        super().update_inference(detection, accuracy)
+        super().update_inference(detection, accuracy, camera)
 
       self.bot.send_message(
-          self.admin_id, '⚠️⚠️⚠️⚠️ ALERTA ⚠️⚠️⚠️⚠️\n\n' f'Detecções:\n\n {sendDetection}')
+          self.admin_id, '⚠️⚠️⚠️⚠️ ALERTA ⚠️⚠️⚠️⚠️\n\n' f'Camêra: {camera}\n\n' f'Detecções:\n\n {sendDetection}')
       self.bot.send_photo(self.admin_id, img)
     except:
       pass

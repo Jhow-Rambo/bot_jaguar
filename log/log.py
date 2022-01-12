@@ -24,12 +24,13 @@ class Log():
           f.write(f'|                 DIA {date}                 |\n')
           f.write(f'|------------------------------------------------|')
 
-  def update_inference(self, detection: str, accuracy: int):
+  def update_inference(self, detection: str, accuracy: int, camera: str):
     """Function to update the log with the new inference
 
     Args:
         detection (str): String with the detection
         accuracy (int): Integer with the accuracy of the detection
+        camera (str): String with the name of the camera
     """
     now = datetime.now()
     date = now.strftime("%d/%m/%Y")
@@ -39,8 +40,9 @@ class Log():
       f.write(f'\n\n------------------------------------------------\n')
       f.write(f'                Última detecção: {detection}\n')
       f.write(f'------------------------------------------------\n')
-      f.write(f'\n    Data: {date}  -  Horário: {time}\n')
-      f.write(f'    Detectado(s): {detection}\n')
+      f.write(f'\n    Data: {date}  -  Horário: {time}\n\n')
+      f.write(f'    Câmera: {camera}\n\n')
+      f.write(f'    Detectado(s): {detection}\n\n')
       f.write(f'    Acurácia(s): {accuracy}\n')
   
   def update_date(self):
