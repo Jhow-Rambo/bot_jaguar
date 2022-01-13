@@ -83,4 +83,4 @@ class AdminBot(Log):
   def send_isAlive(self):
     """Funtion to test if the bot is alive
     """
-    self.bot.send_message(self.admin_id, 'Estou vivo!')
+    self.bot.send_message(self.admin_id, 'Serviço ativo!')

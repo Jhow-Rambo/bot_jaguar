@@ -3,14 +3,19 @@ from AdminBot import AdminBot
 from dotenv import load_dotenv
 from threading import Thread
 import os
+from UserBot import UserBot
 
 #---------- Load the variables ----------#
 load_dotenv()
 token_admin = os.getenv('ADMIN_TOKEN')
 admin_id = os.getenv('ADMIN_ID')
 
+token_user = os.getenv('USER_TOKEN')
+user_id = os.getenv('USER_ID')
+
 #---------- Create the bot ----------#
 tb = AdminBot(token_admin, admin_id, log=True)
+# tb = UserBot(token_user, user_id)
 
 #---------- Create the thread to listen user request ----------#
 # t1 = Thread(target=tb.alive)

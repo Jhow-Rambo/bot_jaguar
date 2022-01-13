@@ -23,17 +23,23 @@ class UserBot():
     def send_commands(message):
       bot.reply_to(message, "/help\nAinda não há comandos")
 
-  def send_alert(self, detection: str, accuracy: int, img: Any):
+  def send_alert(self, detection: str, accuracy: int, img: Any, camera: str):
     """Function to send alerts to the user when the IA detects something
 
     Args:
         detection (str): String with the detection
         accuracy (int): Accuracy of the detection
         img (Any): Image with the detection
+        camera (str): Name of the camera
     """
+    sendDetection = ''
+
+    for i in range(len(detection)):
+        sendDetection += '  + ' + detection[i] + ' - ' + str(accuracy[i]) + '%' + '\n '
+
     try:
       self.bot.send_message(
-          self.user_id, '⚠️⚠️⚠️⚠️ ALERTA ⚠️⚠️⚠️⚠️\n\n' f'Detectado: {detection}\n'f'Acurácia: {accuracy}%\n')
+          self.user_id, '⚠️⚠️⚠️⚠️ ALERTA ⚠️⚠️⚠️⚠️\n\n' f'Camêra: {camera}\n\n' f'Detecções:\n\n {sendDetection}')
       self.bot.send_photo(self.user_id, img)
     except:
       pass
@@ -41,5 +47,5 @@ class UserBot():
   def send_isAlive(self):
     """Funtion to test if the bot is alive
     """
-    self.bot.send_message(self.user_id, 'Serviço ativo')
+    self.bot.send_message(self.user_id, 'Serviço ativo!')
 
