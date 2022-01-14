@@ -34,12 +34,13 @@ class UserBot():
     """
     sendDetection = ''
 
-    for i in range(len(detection)):
+    try:
+      for i in range(len(detection)):
         sendDetection += '  + ' + detection[i] + ' - ' + str(accuracy[i]) + '%' + '\n '
 
-    try:
       self.bot.send_message(
           self.user_id, '⚠️⚠️⚠️⚠️ ALERTA ⚠️⚠️⚠️⚠️\n\n' f'Camêra: {camera}\n\n' f'Detecções:\n\n {sendDetection}')
+      
       self.bot.send_photo(self.user_id, img)
     except:
       pass
