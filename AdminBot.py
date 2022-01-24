@@ -80,7 +80,7 @@ class AdminBot(Log):
     """
     return super().update_date()
   
-  def send_isAlive(self):
+  def send_isAlive(self, camera: str):
     """Funtion to test if the bot is alive
     """
-    self.bot.send_message(self.admin_id, 'Serviço ativo!')
+    self.bot.send_message(self.admin_id, f'Câmera: {camera} - Serviço ativo!')

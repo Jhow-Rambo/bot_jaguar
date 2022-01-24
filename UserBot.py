@@ -45,8 +45,8 @@ class UserBot():
     except:
       pass
   
-  def send_isAlive(self):
+  def send_isAlive(self, camera: str):
     """Funtion to test if the bot is alive
     """
-    self.bot.send_message(self.user_id, 'Serviço ativo!')
+    self.bot.send_message(self.user_id, f'Câmera: {camera} - Serviço ativo!')
 
