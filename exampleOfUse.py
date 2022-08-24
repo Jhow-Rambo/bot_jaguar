@@ -1,9 +1,9 @@
 from logging import log
-from AdminBot import AdminBot
+#from AdminBot import AdminBot
 from dotenv import load_dotenv
 from threading import Thread
 import os
-from UserBot import UserBot
+from Bot import UserBot, AdminBot
 
 #---------- Load the variables ----------#
 load_dotenv()
@@ -28,5 +28,5 @@ tb = AdminBot(token_admin, admin_id, log=True)
 tb.send_alert(detection=['pessoa', 'pessoa', 'carro', 'casa'], accuracy=['23', '43', '31', '90'], img=None, camera='camera1')
 
 #----------      Send Alive   ------------#
-# tb.send_isAlive()
+#tb.send_isAlive()
 
